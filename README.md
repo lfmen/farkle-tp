@@ -14,7 +14,6 @@ Rscript jugar.R
 
 ```
 ├── jugar.R        # Script principal (punto de entrada)
-├── funciones.R    # Funciones auxiliares propias del equipo
 └── README.md
 ```
 
