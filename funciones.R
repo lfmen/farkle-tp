@@ -32,6 +32,33 @@ calcular_puntaje_tirada <- function(tirada) {
   # - Retornar el puntaje total
 }
 
+#' Calcula el puntaje total obtenido en una tirada
+#'
+#' @param tirada Vector numérico con los resultados de los dados tirados.
+#' 
+#' @return Número entero con el puntaje total de la tirada
+#' @return FALSE si no hay puntaje que sumar
+#' @examples 
+
+
+calcular_puntaje_tirada <- function(tirada) {
+  
+  puntaje <- 0
+  acumulado <- for (i in 1:length(tirada)) {
+    {
+    
+    if (tirada[i] == 1) {
+      puntaje <- puntaje + 100
+      
+    } 
+    if (tirada[i] == 5) {
+      puntaje <- puntaje + 50
+    }
+  }
+  if (acumulado ==0) {return(FALSE)}
+  return(acumulado)
+  }
+
 
 # ==============================================================================
 # RESPONSABLE: Luca
