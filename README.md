@@ -41,4 +41,3 @@ pak::pkg_install("ee-unr/programacion-1/tp/farkle")
 - Vazquez, Santos Nicolás - Comisión 4A
 - Morello, Nino Julián - Comisión 2A
 - Mengarelli, Luca Franco - Comisión 1B
-- Benegas, Fernando Gabriel - Comisión 2B
