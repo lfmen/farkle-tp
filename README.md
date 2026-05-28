@@ -14,9 +14,10 @@ Trabajo Práctico de la materia **Programación 1** - Implementación del juego 
 |---|---|---|
 | ~~`calcular_puntaje_tirada`~~ | Nino | ~~Hecho~~ |
 | `ejecutar_turno` | Nino | |
-| `dados_sin_puntaje` | Luca | |
+| ~~`dados_sin_puntaje`~~ | Luca | ~~Hecho~~ |
 | `mostrar_tabla` | Nico | |
 | `pantalla_inicio` | Nico | |
+| `jugar.R` | Luca | |
 
 ## Cómo ejecutar
 
