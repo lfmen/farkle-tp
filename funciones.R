@@ -4,9 +4,9 @@
 #
 # GRUPO Nº 12:
 #
-# - Vazquez, Santos Nicolás
-# - Morello, Nino Julián
-# - Mengarelli, Luca Franco
+# - Vazquez, Santos Nicolás - Comisión 4A
+# - Morello, Nino Julián - Comisión 2A
+# - Mengarelli, Luca Franco - Comisión 1B
 #
 # ARCHIVO: funciones.R
 #
