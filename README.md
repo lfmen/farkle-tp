@@ -10,7 +10,7 @@ Trabajo Práctico de la materia **Programación 1** - Implementación del juego 
 
 ## Organización del grupo
 
-Usamos **GitHub** como repositorio compartido. Cada uno trabajó en su propia rama y fue integrando los cambios del resto.
+Usamos **GitHub** como repositorio compartido. Cada uno trabajó en su propia rama y fue integrando los cambios del resto. Documentamos todo en el README para tener el proyecto más ordenado y prolijo.
 
 División del trabajo por archivo:
 
@@ -80,8 +80,5 @@ pak::pkg_install("ee-unr/programacion-1/tp/farkle")
 - Si todos los dados son retirados, se puede volver a tirar con 5 dados manteniendo el puntaje del turno.
 - **Gana el primero en llegar exactamente a 1000 puntos.** Si se supera ese número, no se suman los puntos del turno.
 
-## Aclaraciones
 
-- Solo hay que ejecutar `jugar.R`. Los otros archivos los carga solo con `source()`.
-- El paquete `farkle` se instala una sola vez (ver más arriba).
-- Todo corre en consola, no tiene interfaz gráfica.
+
