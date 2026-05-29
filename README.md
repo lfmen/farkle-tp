@@ -80,14 +80,38 @@ pak::pkg_install("ee-unr/programacion-1/tp/farkle")
 - Si todos los dados son retirados, se puede volver a tirar con 5 dados manteniendo el puntaje del turno.
 - **Gana el primero en llegar exactamente a 1000 puntos.** Si se supera ese número, no se suman los puntos del turno.
 
-## Decisiones de diseño
+## Aclaraciones
 
-- **Tres archivos separados:** `funciones.R` tiene la lógica, `interfaz.R` la presentación y `jugar.R` es el punto de entrada. Así cada parte tiene su lugar y es más fácil trabajar sin pisarse entre integrantes.
-- **Convenciones unificadas:** Usamos snake_case e igual estilo de documentación en todo el proyecto para que el código sea consistente.
-- **`source()` para cargar archivos:** Es la forma más directa para un proyecto de esta escala.
+- Solo hay que ejecutar `jugar.R`. Los otros archivos los carga solo con `source()`.
+- El paquete `farkle` se instala una sola vez (ver más arriba).
+- Todo corre en consola, no tiene interfaz gráfica.
 
-## Aclaraciones para el corrector
+## Ejemplo de ejecución
 
-- El único archivo a ejecutar es `jugar.R`. Los otros dos los carga automáticamente con `source()`.
-- El paquete `farkle` hay que instalarlo una sola vez antes de correr el programa (ver sección de instalación).
-- Corre completamente en consola, sin interfaz gráfica.
+```
+╔══════════════════════════════════╗
+║         Bienvenidos a Farkle     ║
+╚══════════════════════════════════╝
+
+Antes de comenzar, ingrese los nombres de los jugadores.
+Jugador 1: Nico
+Jugador 2: Luca
+
+¡Perfecto! Va a jugar «Nico» contra «Luca»
+
+¿Están listos?
+[Presione Enter para continuar]
+
+RONDA 1
+
+INFORMACIÓN DE LA PARTIDA
+
+Jugador   Puntos
+-------   ------
+Nico         0
+Luca         0
+
+Elegí una opción:
+1. Comenzar la ronda
+2. Salir del juego
+```
