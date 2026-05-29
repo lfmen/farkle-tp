@@ -62,7 +62,6 @@ pantalla_inicio <- function() {
   return(c(nombre1, nombre2))
 }
 
-
 #' Mostrar la tabla de puntajes actuales
 #'
 #' Esta función imprime en pantalla una tabla con los nombres y puntajes
@@ -104,3 +103,22 @@ mostrar_tabla <- function(nombre1, nombre2, puntaje1, puntaje2) {
   cat("\n")
 }
 
+#' Mostrar la información del turno actual
+#'
+#' Imprime una tabla con el número de tirada, puntos acumulados en el turno
+#' y dados disponibles para la próxima tirada.
+#'
+#' @param tirada Número de la tirada actual
+#' @param acumulado Puntos acumulados en el turno hasta el momento
+#' @param disponibles Cantidad de dados que se pueden volver a tirar.
+#'
+#' @return No devuelve ningún valor. Solo imprime la tabla en la consola.
+#'
+#' @example
+#' mostrar_turno(1, 150, 3)
+mostrar_turno <- function(tirada, acumulado, disponibles) {
+  cat("INFORMACION DEL TURNO\n\n")
+  cat("Tiradas   Acumulado   Dados disponibles\n")
+  cat("-------   ---------   -----------------\n")
+  cat(tirada, "          ", acumulado, "             ", disponibles, "\n", sep = "")
+}
