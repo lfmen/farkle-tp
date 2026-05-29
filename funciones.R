@@ -22,8 +22,7 @@
 #' Calcula el puntaje obtenido en una tirada
 #'
 #' @param tirada Vector numérico con los resultados de los dados tirados.
-#' @return Número entero con el puntaje total de la tirada.
-#' @return 0 si no hay puntaje que sumar.
+#' @return Número entero con el puntaje total de la tirada, o 0 si ningún dado suma puntos.
 calcular_puntaje_tirada <- function(tirada) {
   puntaje <- 0
   for (i in 1:length(tirada)) {

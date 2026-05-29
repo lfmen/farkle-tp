@@ -8,16 +8,36 @@ Trabajo Práctico de la materia **Programación 1** - Implementación del juego 
 - Morello, Nino Julián - Comisión 2A
 - Mengarelli, Luca Franco - Comisión 1B
 
-## Asignaciones
+## Organización del grupo
 
-| Función | Responsable | Archivo | Estado |
-|---|---|---|---|
-| ~~`calcular_puntaje_tirada`~~ | Nino | `funciones.R` | ~~Hecho~~ |
-| `ejecutar_turno` | Nino | `funciones.R` | |
-| ~~`dados_sin_puntaje`~~ | Luca | `funciones.R` | ~~Hecho~~ |
-| ~~`mostrar_tabla`~~ | Nico | `interfaz.R` | ~~Hecho~~ |
-| ~~`pantalla_inicio`~~ | Nico | `interfaz.R` | ~~Hecho~~ |
-| ~~`jugar.R`~~ | Luca | `jugar.R` | ~~Hecho~~ |
+El trabajo fue desarrollado de forma colaborativa usando **GitHub** como repositorio compartido.
+Cada integrante trabajó en su propia rama y subió sus cambios al repositorio para que el resto
+pudiera verlos e integrarlos.
+
+La división del trabajo se hizo por funciones: cada uno tomó las funciones que le correspondían,
+las implementó de forma independiente y las documentó siguiendo el mismo estilo que el resto del
+grupo. A continuación se detalla quién hizo qué en cada archivo.
+
+### `funciones.R`
+
+| Función | Responsable | Estado |
+|---|---|---|
+| `calcular_puntaje_tirada` | Nino | Terminada |
+| `dados_sin_puntaje` | Luca | Terminada |
+| `ejecutar_turno` | Nino | En progreso |
+
+### `interfaz.R`
+
+| Función | Responsable | Estado |
+|---|---|---|
+| `pantalla_inicio` | Nico | Terminada |
+| `mostrar_tabla` | Nico | Terminada |
+
+### `jugar.R`
+
+| Sección | Responsable | Estado |
+|---|---|---|
+| Programa principal (bucle de rondas, lógica de fin de juego) | Luca | Terminado |
 
 ## Cómo ejecutar
 
@@ -59,5 +79,4 @@ pak::pkg_install("ee-unr/programacion-1/tp/farkle")
 - Si ningún dado muestra 1 o 5, el turno termina y se pierden los puntos acumulados en ese turno.
 - Si todos los dados son retirados, se puede volver a tirar con 5 dados manteniendo el puntaje del turno.
 - **Gana el primero en llegar exactamente a 1000 puntos.** Si se supera ese número, no se suman los puntos del turno.
-
 

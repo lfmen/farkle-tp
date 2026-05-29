@@ -38,8 +38,8 @@ library("farkle")
 # Carga de funciones propias
 #-------------------------------------------------------------------------------
 
-source("funciones.R")   # Funciones del juego (calcular_puntaje_tirada, dados_sin_puntaje, ejecutar_turno)
-source("interfaz.R")    # Funciones de interfaz (pantalla_inicio, mostrar_tabla) - implementadas por Nico
+source("funciones.R")   # Funciones del juego
+source("interfaz.R")    # Funciones de interfaz (Nico)
 
 #-------------------------------------------------------------------------------
 # Programa principal
