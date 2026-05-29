@@ -72,7 +72,6 @@ ejecutar_turno <- function(nombre, puntaje_total, puntaje_maximo) {
   # TODO (Nino Morello):
   # - Inicializar puntaje del turno en 0 y dados disponibles en 5
   # - Entrar en un bucle que se repite mientras el turno esté activo:
-  #     * Mostrar información del turno (nombre, puntaje total, dados disponibles, puntos acumulados)
   #     * Preguntar al jugador si quiere tirar o terminar el turno (usar leer_opciones())
   #     * Si elige terminar: retornar el puntaje acumulado en el turno
   #     * Si elige tirar:
