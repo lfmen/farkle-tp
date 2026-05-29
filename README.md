@@ -55,15 +55,11 @@ Rscript jugar.R
 ```
 ├── jugar.R        # Script principal (punto de entrada)
 ├── funciones.R    # Funciones del juego: calcular_puntaje_tirada, dados_sin_puntaje, ejecutar_turno
-├── interfaz.R     # Funciones de interfaz: pantalla_inicio, mostrar_tabla, mostrar_turno
+├── interfaz.R     # Funciones de interfaz: pantalla_inicio, mostrar_tabla
 └── README.md
 ```
 
-> **Nota:** Se decidió separar las funciones de interfaz en un archivo propio (`interfaz.R`) para
-> mantener el código más organizado y limpio. De esta forma, `funciones.R` concentra exclusivamente
-> la lógica del juego, mientras que todo lo relacionado con la presentación en pantalla queda
-> agrupado en un único lugar. El archivo `jugar.R` carga ambos con `source()`, por lo que el
-> funcionamiento del programa no se ve afectado.
+> **Nota:** La idea de separar la interfaz en su propio archivo fue de Nico. Nos pareció buena para mantener el código ordenado: `funciones.R` se ocupa de la lógica del juego y `interfaz.R` de lo que se muestra en pantalla. `jugar.R` los carga a los dos con `source()`, así que no cambia nada desde afuera.
 
 ## Instalación del paquete `farkle`
 
@@ -95,3 +91,33 @@ pak::pkg_install("ee-unr/programacion-1/tp/farkle")
 - El único archivo a ejecutar es `jugar.R`. Los otros dos los carga automáticamente con `source()`.
 - El paquete `farkle` hay que instalarlo una sola vez antes de correr el programa (ver sección de instalación).
 - Corre completamente en consola, sin interfaz gráfica.
+
+## Ejemplo de ejecución
+
+```
+╔══════════════════════════════════╗
+║         Bienvenidos a Farkle     ║
+╚══════════════════════════════════╝
+
+Antes de comenzar, ingrese los nombres de los jugadores.
+Jugador 1: Nico
+Jugador 2: Luca
+
+¡Perfecto! Va a jugar «Nico» contra «Luca»
+
+¿Están listos?
+[Presione Enter para continuar]
+
+RONDA 1
+
+INFORMACIÓN DE LA PARTIDA
+
+Jugador   Puntos
+-------   ------
+Nico         0
+Luca         0
+
+Elegí una opción:
+1. Comenzar la ronda
+2. Salir del juego
+```
