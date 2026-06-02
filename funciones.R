@@ -98,7 +98,7 @@ dados_sin_puntaje <- function(tirada) {
     if (puntaje_total + puntaje_acumulado > puntaje_maximo){
       return(0)
     }
-    if (dados == 0){suertudo <- 1}
+    if (dados == 0){suertudo <- TRUE}
     
     texto_lento(mostrar_dados(tirada),"sacaste", calcular_puntaje_tirada(tirada),cat("\n"),
                 "puntaje acumulado =", puntaje_acumulado)
