@@ -25,7 +25,7 @@ pantalla_inicio <- function() {
   limpiar_consola()
   
   # Mostrar título
-  titulo("######################## FARKLE - El juego de dados ########################")
+  titulo("##################### FARKLE - El juego de dados #####################")
   
   # Mensaje de bienvenida y reglas del juego
   texto_lento(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BIENVENIDOS!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n
@@ -35,7 +35,7 @@ pantalla_inicio <- function() {
   « La partida se desarrolla a lo largo de múltiples rondas. En cada una de 
   estas rondas, los jugadores participan por turnos respetando un orden. Dentro 
   de su turno, cada jugador puede lanzar los dados una o más veces, dependiendo
-  del resultado de cada tirada. » \n")
+  del resultado de cada tirada. » \n" , pausa = 0.005)
   texto_lento(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ REGLAS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n
   ∙ Cada jugador comienza lanzando cinco dados. 
   ∙ Los (1) suman 100 puntos, y los (5) suman 50.
@@ -43,14 +43,14 @@ pantalla_inicio <- function() {
   ∙ Si el jugador sigue tirando, lanza los dados que no sumaron puntos en la 
   tirada anterior.
   ∙ Si en una tirada el jugador no suma puntos, pierde todo lo acumulado en ese
-  turno.\n")
+  turno.\n", pausa = 0.005)
   texto_lento(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ EVENTOS ESPECIALES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n
   ∙ Si en una tirada todos los dados suman puntos, el jugador puede volver a 
   tirar con cinco dados.
   ∙ Si en una tirada el jugador supera el puntaje máximo, pierde todo lo 
   acumulado en ese turno.
   ∙ Si ambos jugadores alcanzan el puntaje máximo en la misma ronda, se 
-  considera empate.\n ")
+  considera empate.\n ", pausa = 0.005)
   
   # Pausa para leer
   pausa(mensaje = "")
@@ -76,44 +76,23 @@ pantalla_inicio <- function() {
 }
 
 
-#' Mostrar la tabla de puntajes actuales
+#' Mostrar los puntajes actuales de la partida.
 #'
-#' Esta función imprime en pantalla una tabla con los nombres y puntajes
-#' de ambos jugadores, teniendo en cuenta los espacios para que coincidan
-#' sin importar cuán largo sea el nombre.
+#' Imprime en pantalla los nombres y puntajes usando una flecha para separar.
 #'
 #' @param nombre1 Nombre del primer jugador
 #' @param nombre2 Nombre del segundo jugador
 #' @param puntaje1 Puntaje actual del primer jugador
 #' @param puntaje2 Puntaje actual del segundo jugador
 #'
-#' @return No devuelve ningún valor. Solo imprime la tabla en la consola.
+#' @return No devuelve ningún valor. Solo imprime la información en la consola.
 #'
 #' @examples
-#' mostrar_tabla("Nico", "Ramiro", 150, 320)
-mostrar_tabla <- function(nombre1, nombre2, puntaje1, puntaje2) {
-  # Calcular el largo (cantidad de letras) de cada nombre
-  largo1 <- nchar(nombre1)
-  largo2 <- nchar(nombre2)
-  
-  # Determinar el máximo largo entre los dos nombres
-  max_largo <- max(largo1, largo2)
-  
-  # Crear una cadena con los espacios que faltan para cada nombre
-  # hasta alcanzar el largo máximo
-  espacios1 <- paste(rep(" ", max_largo - largo1), collapse = "")
-  espacios2 <- paste(rep(" ", max_largo - largo2), collapse = "")
-  
-  # Ajustar los nombres agregando los espacios al final
-  nombre1_ajustado <- paste0(nombre1, espacios1)
-  nombre2_ajustado <- paste0(nombre2, espacios2)
-  
-  # Imprimir la tabla con formato
+#' mostrar_puntaje("Nico", "Ramiro", 150, 320)
+mostrar_puntaje <- function(nombre1, nombre2, puntaje1, puntaje2) {
   cat("INFORMACIÓN DE LA PARTIDA\n\n")
-  cat("Jugador   Puntos\n")
-  cat("-------   ------\n")
-  cat(nombre1_ajustado, "   ", puntaje1, "\n", sep = "")
-  cat(nombre2_ajustado, "   ", puntaje2, "\n", sep = "")
+  cat(nombre1, "→", puntaje1, "puntos\n")
+  cat(nombre2, "→", puntaje2, "puntos\n")
   cat("\n")
 }
 
