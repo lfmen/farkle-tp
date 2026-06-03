@@ -77,8 +77,10 @@ ejecutar_turno <- function(nombre, puntaje_total, puntaje_maximo) {
   puntaje_acumulado <- 0
   dados <- 5 
   suertudo <- FALSE
-  
+  cant_tiradas <- 0
   while (TRUE) {
+    
+    mostrar_turno(cant_tiradas, puntaje_acumulado, dados)
     
     if (dados != 5 || suertudo) {
       decision <- leer_opciones("¿Tirar dados?", "Si", "No")
@@ -112,9 +114,14 @@ ejecutar_turno <- function(nombre, puntaje_total, puntaje_maximo) {
       dados <- 5
     } else {
       suertudo <- FALSE
+      
+      cant_tiradas <- cant_tiradas + 1
     }
     
-    texto_lento(mostrar_dados(tirada), "\nSacaste", calcular_puntaje_tirada(tirada), "puntos\n",
+    texto_lento("Salieron los siguientes dados:", mostrar_dados(tirada), "\nSacaste", calcular_puntaje_tirada(tirada), "puntos\n",
                 "Puntaje acumulado =", puntaje_acumulado, "\n")
+    
+    pausa(mensaje = NULL)
+    limpiar_consola()
   }
 }
