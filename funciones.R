@@ -72,14 +72,17 @@ dados_sin_puntaje <- function(tirada) {
 #' @param puntaje_total Número con el puntaje total acumulado del jugador.
 #' @param puntaje_maximo Número con el puntaje objetivo del juego (1000).
 #' @return Número con los puntos ganados en este turno (0 si perdió el turno).
+
 ejecutar_turno <- function(nombre, puntaje_total, puntaje_maximo) {
   
   puntaje_acumulado <- 0
   dados <- 5 
   suertudo <- FALSE
   cant_tiradas <- 0
+  
   while (TRUE) {
     
+    titulo(paste("Turno de:" , nombre, "con" , puntaje_total , "puntos"))
     mostrar_turno(cant_tiradas, puntaje_acumulado, dados)
     
     if (dados != 5 || suertudo) {
@@ -94,8 +97,10 @@ ejecutar_turno <- function(nombre, puntaje_total, puntaje_maximo) {
     
     tirada <- tirar_dados(dados)
     
+    texto_lento("Salieron los siguientes dados:\n", mostrar_dados(tirada)) 
+    
     if (calcular_puntaje_tirada(tirada) == 0) { 
-      texto_lento("No te salió nada. Perdiste el turno.\n") 
+      texto_lento("No te salió ni 5 ni 1. Sacaste 0 puntos.\n") 
       pausa()
       return(0)
     } else {
@@ -104,7 +109,7 @@ ejecutar_turno <- function(nombre, puntaje_total, puntaje_maximo) {
     }
     
     if (puntaje_total + puntaje_acumulado > puntaje_maximo) {
-      texto_lento("Te pasaste del puntaje máximo. Perdiste el turno.\n")
+      texto_lento("Te pasaste del puntaje máximo. Puntos acumulados perdidos.\n")
       pausa()
       return(0)
     }
@@ -118,8 +123,7 @@ ejecutar_turno <- function(nombre, puntaje_total, puntaje_maximo) {
       cant_tiradas <- cant_tiradas + 1
     }
     
-    texto_lento("Salieron los siguientes dados:", mostrar_dados(tirada), "\nSacaste", calcular_puntaje_tirada(tirada), "puntos\n",
-                "Puntaje acumulado =", puntaje_acumulado, "\n")
+    texto_lento("\nSacaste", calcular_puntaje_tirada(tirada), "puntos\n")
     
     pausa(mensaje = NULL)
     limpiar_consola()
