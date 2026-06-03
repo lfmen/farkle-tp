@@ -1,0 +1,21 @@
+COSAS A CAMBIAR
+
+DONE 1- Pantalla_inicio: acelerar letras
+DONE 2- Titulo: acomodar los "#"
+DONE 3- mostrar_tabla: puntajes muy lejos, alinear puntos.(cambiar de lugar con nombres?)
+4- mostrar_dados: agregar" Salieron los siguientes dados:"
+
+5- Comenzar ronda -> informacion_turno: falta mostrar la tabla junto con tirar dados ;
+Y titulo del turno con nombre arriba.
+
+6- Cuando se queda sin dados, avisa y limpia consola (falta el continuar)(Quitar el limpiar)
+
+
+
+COSAS A PROBAR
+
+1- Legar a 1000
+2- Pasarte de 1000 > ANDA el mensaje (sacar limpiar consola).
+3- EMPATE? (ambos jugadores sacan 1000 en la misma ronda)
+4- Cuando 2 jugadores se pasan de 1000 al mismo tiempo
+5- Si un jugador usa los 5 dados y todos suman puntos, devolvuelve los 5 dados?
