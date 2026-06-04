@@ -1,8 +1,8 @@
-# Trabajo Práctico de la materia **Programación 1** - Implementación del juego de dados **Farkle** en R.
+# Farkle TP - Programación 1 (2026)
+
+Trabajo Práctico de la materia **Programación 1** - Implementación del juego de dados **Farkle** en R.
 
 ## Grupo Nº 12
-
-## Integrantes del grupo
 
 - Vazquez, Santos Nicolás - Comisión 4A
 - Morello, Nino Julián - Comisión 2A
