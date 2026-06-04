@@ -1,6 +1,6 @@
 # Farkle TP - Programación 1 (2026)
 
-Trabajo Práctico de la materia **Programación 1** - Implementación del juego de dados **Farkle** en R.
+¡Hola! Este es nuestro Trabajo Práctico para la materia **Programación 1**. Acá implementamos el clásico juego de dados **Farkle** usando R.
 
 ## Integrantes del grupo
 
@@ -10,7 +10,7 @@ Trabajo Práctico de la materia **Programación 1** - Implementación del juego 
 
 ## Organización del grupo
 
-Usamos **GitHub** como repositorio compartido. Cada uno trabajó en su propia rama y fue integrando los cambios del resto. Documentamos todo en el README para tener el proyecto más ordenado y prolijo.
+Usamos **GitHub** como repositorio compartido. Documentamos todo en el README para tener el proyecto más ordenado y prolijo.
 
 División del trabajo por archivo:
 
@@ -61,7 +61,9 @@ Rscript jugar.R
 
 ## Decisiones de diseño
 
-- **Modularización:** Se decidió separar las funciones de interfaz en su propio script (`interfaz.R`) para mantener el código más ordenado y separar la lógica de presentación de la lógica principal del juego.
+- **Modularización:** Separamos las funciones de interfaz en un script propio (`interfaz.R`) para mantener el código limpio y no mezclar la lógica del juego con la visual.
+- **Compatibilidad (ASCII estándar):** Utilizamos únicamente caracteres ASCII estándar para la interfaz. De esta manera evitamos problemas de compatibilidad y garantizamos que el juego se vea bien en cualquier terminal.
+- **Estilo del título:** Diseñamos el título principal usando *ASCII art* para darle una mejor estética y lograr una presentación más atractiva al iniciar.
 
 ## Instalación del paquete `farkle`
 
