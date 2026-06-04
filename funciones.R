@@ -25,13 +25,12 @@
 #' @param tirada Vector numérico con los resultados de los dados tirados.
 #' @return Número entero con el puntaje total de la tirada, o 0 si ningún dado suma puntos.
 calcular_puntaje_tirada <- function(tirada) {
-  
   puntaje <- 0
-  for (i in 1:length(tirada)) {
-    if (tirada[i] == 1) {
+  for (dado in tirada) {
+    if (dado == 1) {
       puntaje <- puntaje + 100
     } 
-    if (tirada[i] == 5) {
+    if (dado == 5) {
       puntaje <- puntaje + 50
     }
   }
@@ -52,7 +51,7 @@ calcular_puntaje_tirada <- function(tirada) {
 dados_sin_puntaje <- function(tirada) {
   restantes <- c()
   for (dado in tirada) {
-    if (dado != 1 && dado != 5) {
+    if (dado != 1 & dado != 5) {
       restantes <- c(restantes, dado)
     }
   }
@@ -72,17 +71,14 @@ dados_sin_puntaje <- function(tirada) {
 #' @param puntaje_total Número con el puntaje total acumulado del jugador.
 #' @param puntaje_maximo Número con el puntaje objetivo del juego (1000).
 #' @return Número con los puntos ganados en este turno (0 si perdió el turno).
-
 ejecutar_turno <- function(nombre, puntaje_total, puntaje_maximo) {
-  
   puntaje_acumulado <- 0
   dados <- 5 
-  suertudo <- FALSE
   cant_tiradas <- 0
   
   while (TRUE) {
     
-    titulo(paste("Turno de", nombre, "con", puntaje_total, "puntos"))
+    titulo(paste0("Turno de ", nombre, " con ", puntaje_total, " puntos"))
     mostrar_turno(cant_tiradas, puntaje_acumulado, dados)
     cat("\n")
     
@@ -118,11 +114,8 @@ ejecutar_turno <- function(nombre, puntaje_total, puntaje_maximo) {
     texto_lento("\nSacaste", puntaje_tirada, "puntos\n", pausa = 0.003)
 
     if (dados == 0) {
-      suertudo <- TRUE
       dados <- 5
       texto_lento("\n* ¡Usaste todos los dados! Podés volver a tirar con 5 dados.\n", pausa = 0.003)
-    } else {
-      suertudo <- FALSE
     }
     
     pausa()

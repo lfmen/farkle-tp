@@ -59,7 +59,7 @@ juego_activo <- TRUE
 while (juego_activo) {
 
   limpiar_consola()
-  titulo(paste("RONDA", ronda))
+  titulo(paste0("RONDA ", ronda))
   mostrar_puntaje(nombre1, nombre2, puntaje1, puntaje2)
 
   opcion_ronda <- leer_opciones(
@@ -70,7 +70,6 @@ while (juego_activo) {
 
   if (opcion_ronda == 2) {
     cat("\n¡Hasta la próxima!\n")
-    pausa()
     juego_activo <- FALSE
   } else {
 
@@ -87,7 +86,7 @@ while (juego_activo) {
     # ---- Verificar fin del juego ----
     limpiar_consola()
 
-    if (puntaje1 == puntaje_maximo && puntaje2 == puntaje_maximo) {
+    if (puntaje1 == puntaje_maximo & puntaje2 == puntaje_maximo) {
       # Empate: ambos llegaron a 1000 en la misma ronda
       titulo("¡EMPATE!")
       cat("\nAmbos jugadores llegaron a", puntaje_maximo, "puntos en la misma ronda.\n")
@@ -96,19 +95,19 @@ while (juego_activo) {
 
     } else if (puntaje1 == puntaje_maximo) {
       # Ganó el jugador 1
-      titulo(paste("¡GANA", nombre1, "!"))
+      titulo(paste0("¡GANA ", nombre1, "!"))
       mostrar_puntaje(nombre1, nombre2, puntaje1, puntaje2)
       juego_activo <- FALSE
 
     } else if (puntaje2 == puntaje_maximo) {
       # Ganó el jugador 2
-      titulo(paste("¡GANA", nombre2, "!"))
+      titulo(paste0("¡GANA ", nombre2, "!"))
       mostrar_puntaje(nombre1, nombre2, puntaje1, puntaje2)
       juego_activo <- FALSE
 
     } else {
       # La partida continúa: mostrar resumen de la ronda y avanzar
-      titulo(paste("FIN DE LA RONDA", ronda))
+      titulo(paste0("FIN DE LA RONDA ", ronda))
       mostrar_puntaje(nombre1, nombre2, puntaje1, puntaje2)
       pausa()
       ronda <- ronda + 1

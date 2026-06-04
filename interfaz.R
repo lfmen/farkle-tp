@@ -122,6 +122,8 @@ mostrar_turno <- function(cant_tiradas, acumulado, disponibles) {
   cat("INFORMACIÓN DEL TURNO\n\n")
   cat("Tiradas   Acumulado   Dados disponibles\n")
   cat("-------   ---------   -----------------\n")
+  # usamos format(width=) que encontramos buscando en la documentacion de r
+  # para forzar el ancho de columna y que la tabla no se desalinee
   cat(format(cant_tiradas, width = 7), "  ",
       format(acumulado,    width = 9), "  ",
       format(disponibles,  width = 16), "\n", sep = "")
