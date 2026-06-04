@@ -69,7 +69,7 @@ while (juego_activo) {
   )
 
   if (opcion_ronda == 2) {
-    cat("\n¡Hasta la próxima!\n")
+    texto_lento("\n¡Hasta la próxima!", pausa = 0.003)
     juego_activo <- FALSE
   } else {
 
@@ -89,7 +89,7 @@ while (juego_activo) {
     if (puntaje1 == puntaje_maximo & puntaje2 == puntaje_maximo) {
       # Empate: ambos llegaron a 1000 en la misma ronda
       titulo("¡EMPATE!")
-      cat("\nAmbos jugadores llegaron a", puntaje_maximo, "puntos en la misma ronda.\n")
+      texto_lento("\nAmbos jugadores llegaron a", puntaje_maximo, "puntos en la misma ronda.", pausa = 0.003)
       mostrar_puntaje(nombre1, nombre2, puntaje1, puntaje2)
       juego_activo <- FALSE
 
