@@ -25,32 +25,40 @@ pantalla_inicio <- function() {
   limpiar_consola()
   
   # Mostrar título
-  titulo("##################### FARKLE - El juego de dados #####################")
+  cat("  _____  _    ___ _  __ _    ___ \n")
+  cat(" | __  |/ \\  | _ \\ |/ /| |  | __|\n")
+  cat(" | _/ / _  \\ |   /   < | |__| _| \n")
+  cat(" |_| /_/ \\__\\|_|_\\_|\\_\\|____|___|\n")
+  cat("\n")
+  cat(" ================================\n")
+  cat("       EL JUEGO DE DADOS\n")
+  cat(" ================================\n")
+  cat("\n")
   
   # Mensaje de bienvenida y reglas del juego
-  texto_lento(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BIENVENIDOS!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n
-  « Farkle es un juego de dados de estrategia y gestión de riesgo en el que dos
-  jugadores compiten por alcanzar el puntaje máximo de 1000 puntos antes que su
-  rival. »
-  « La partida se desarrolla a lo largo de múltiples rondas. En cada una de 
-  estas rondas, los jugadores participan por turnos respetando un orden. Dentro 
-  de su turno, cada jugador puede lanzar los dados una o más veces, dependiendo
-  del resultado de cada tirada. » \n" , pausa = 0.005)
-  texto_lento(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ REGLAS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n
-  ∙ Cada jugador comienza lanzando cinco dados. 
-  ∙ Los (1) suman 100 puntos, y los (5) suman 50.
-  ∙ Luego de cada tirada, el jugador decide si plantarse o seguir tirando.
-  ∙ Si el jugador sigue tirando, lanza los dados que no sumaron puntos en la 
+  texto_lento(" /// BIENVENIDOS! ////////////////////////////////////////////////////////// \n
+  > Farkle es un juego de dados de estrategia y gestion de riesgo en el que dos
+  jugadores compiten por alcanzar el puntaje maximo de 1000 puntos antes que
+  su rival.
+  > La partida se desarrolla a lo largo de multiples rondas. En cada una de
+  estas rondas, los jugadores participan por turnos respetando un orden. Dentro
+  de su turno, cada jugador puede lanzar los dados una o mas veces, dependiendo
+  del resultado de cada tirada. \n" , pausa = 0.003)
+  texto_lento(" /// REGLAS /////////////////////////////////////////////////////////////// \n
+  * Cada jugador comienza lanzando cinco dados.
+  * Los (1) suman 100 puntos, y los (5) suman 50.
+  * Luego de cada tirada, el jugador decide si plantarse o seguir tirando.
+  * Si el jugador sigue tirando, lanza los dados que no sumaron puntos en la
   tirada anterior.
-  ∙ Si en una tirada el jugador no suma puntos, pierde todo lo acumulado en ese
-  turno.\n", pausa = 0.005)
-  texto_lento(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ EVENTOS ESPECIALES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n
-  ∙ Si en una tirada todos los dados suman puntos, el jugador puede volver a 
+  * Si en una tirada el jugador no suma puntos, pierde todo lo acumulado en ese
+  turno.\n", pausa = 0.003)
+  texto_lento(" /// EVENTOS ESPECIALES ////////////////////////////////////////////////// \n
+  * Si en una tirada todos los dados suman puntos, el jugador puede volver a
   tirar con cinco dados.
-  ∙ Si en una tirada el jugador supera el puntaje máximo, pierde todo lo 
+  * Si en una tirada el jugador supera el puntaje maximo, pierde todo lo
   acumulado en ese turno.
-  ∙ Si ambos jugadores alcanzan el puntaje máximo en la misma ronda, se 
-  considera empate.\n ", pausa = 0.005)
+  * Si ambos jugadores alcanzan el puntaje maximo en la misma ronda, se
+  considera empate.\n ", pausa = 0.003)
   
   # Pausa para leer
   pausa(mensaje = "")
@@ -59,14 +67,14 @@ pantalla_inicio <- function() {
   limpiar_consola()
   
   # Pedir nombres
-  texto_lento("Antes de comenzar, ingrese los nombres de los jugadores.\n")
-  texto_lento("Jugador 1: ")
+  texto_lento("Antes de comenzar, ingrese los nombres de los jugadores.\n", pausa = 0.003)
+  texto_lento("Jugador 1: ", pausa = 0.003)
   nombre1 <- leer_palabra()
-  texto_lento("Jugador 2: ")
+  texto_lento("Jugador 2: ", pausa = 0.003)
   nombre2 <- leer_palabra()
   
   # Mensaje de confirmación con los nombres
-  texto_lento("\n¡Perfecto! Va a jugar «", nombre1, "» contra «", nombre2, "»\n")
+  texto_lento("\n¡Perfecto! Va a jugar", nombre1, "contra", nombre2, "\n", pausa = 0.003)
   
   # Pausa antes de avanzar
   pausa(mensaje = "¿Están listos?\n")
@@ -78,7 +86,7 @@ pantalla_inicio <- function() {
 
 #' Mostrar los puntajes actuales de la partida.
 #'
-#' Imprime en pantalla los nombres y puntajes usando una flecha para separar.
+#' Imprime en pantalla los nombres y puntajes usando una flecha ASCII para separar.
 #'
 #' @param nombre1 Nombre del primer jugador
 #' @param nombre2 Nombre del segundo jugador
@@ -91,8 +99,8 @@ pantalla_inicio <- function() {
 #' mostrar_puntaje("Nico", "Ramiro", 150, 320)
 mostrar_puntaje <- function(nombre1, nombre2, puntaje1, puntaje2) {
   cat("INFORMACIÓN DE LA PARTIDA\n\n")
-  cat(nombre1, "→", puntaje1, "puntos\n")
-  cat(nombre2, "→", puntaje2, "puntos\n")
+  cat(nombre1, "->", puntaje1, "puntos\n")
+  cat(nombre2, "->", puntaje2, "puntos\n")
   cat("\n")
 }
 
@@ -102,7 +110,7 @@ mostrar_puntaje <- function(nombre1, nombre2, puntaje1, puntaje2) {
 #' Imprime una tabla con el número de tirada, puntos acumulados en el turno
 #' y dados disponibles para la próxima tirada.
 #'
-#' @param tirada Número de la tirada actual
+#' @param cant_tiradas Número de tiradas realizadas hasta el momento
 #' @param acumulado Puntos acumulados en el turno hasta el momento
 #' @param disponibles Cantidad de dados que se pueden volver a tirar.
 #'
@@ -110,9 +118,11 @@ mostrar_puntaje <- function(nombre1, nombre2, puntaje1, puntaje2) {
 #'
 #' @examples
 #' mostrar_turno(1, 150, 3)
-mostrar_turno <- function(tirada, acumulado, disponibles) {
+mostrar_turno <- function(cant_tiradas, acumulado, disponibles) {
   cat("INFORMACIÓN DEL TURNO\n\n")
   cat("Tiradas   Acumulado   Dados disponibles\n")
   cat("-------   ---------   -----------------\n")
-  cat(tirada, "          ", acumulado, "             ", disponibles, "\n", sep = "")
+  cat(format(cant_tiradas, width = 7), "  ",
+      format(acumulado,    width = 9), "  ",
+      format(disponibles,  width = 16), "\n", sep = "")
 }

@@ -82,13 +82,13 @@ ejecutar_turno <- function(nombre, puntaje_total, puntaje_maximo) {
   
   while (TRUE) {
     
-    titulo(paste("Turno de:" , nombre, "con" , puntaje_total , "puntos"))
+    titulo(paste("Turno de", nombre, "con", puntaje_total, "puntos"))
     mostrar_turno(cant_tiradas, puntaje_acumulado, dados)
     
-    if (dados != 5 || suertudo) {
-      decision <- leer_opciones("¿Tirar dados?", "Si", "No")
+    if (cant_tiradas == 0) {
+      decision <- 1  # Primera tirada del turno siempre se lanza
     } else {
-      decision <- leer_opciones("¿Tirar dados?", "Si", "Pasar turno")
+      decision <- leer_opciones("¿Tirar dados?", "Si", "No")
     }
     
     if (decision == 2) {
@@ -97,33 +97,42 @@ ejecutar_turno <- function(nombre, puntaje_total, puntaje_maximo) {
     
     tirada <- tirar_dados(dados)
     
-    texto_lento("Salieron los siguientes dados:\n", mostrar_dados(tirada)) 
+    texto_lento("Salieron los siguientes dados:\n", mostrar_dados(tirada), pausa = 0.003) 
     
-    if (calcular_puntaje_tirada(tirada) == 0) { 
-      texto_lento("No te salió ni 5 ni 1. Sacaste 0 puntos.\n") 
+    puntaje_tirada <- calcular_puntaje_tirada(tirada)
+    
+    if (puntaje_tirada == 0) { 
+      texto_lento("No te salió ni 5 ni 1. Perdiste todos los puntos acumulados en este turno.\n", pausa = 0.003) 
       pausa()
       return(0)
     } else {
-      puntaje_acumulado <- puntaje_acumulado + calcular_puntaje_tirada(tirada)
+      puntaje_acumulado <- puntaje_acumulado + puntaje_tirada
       dados <- length(dados_sin_puntaje(tirada))
     }
     
     if (puntaje_total + puntaje_acumulado > puntaje_maximo) {
-      texto_lento("Te pasaste del puntaje máximo. Puntos acumulados perdidos.\n")
+      texto_lento("Te pasaste del puntaje máximo. Puntos acumulados perdidos.\n", pausa = 0.003)
       pausa()
       return(0)
     }
     
+    cant_tiradas <- cant_tiradas + 1
+    
     if (dados == 0) {
       suertudo <- TRUE
       dados <- 5
+      texto_lento("\n* ¡Usaste todos los dados! Podés volver a tirar con 5 dados.\n", pausa = 0.003)
+      texto_lento("Puntaje acumulado en este turno:", puntaje_acumulado, "\n", pausa = 0.003)
+      pausa(mensaje = NULL)
+      decision2 <- leer_opciones("¿Qué hacés?", "Tirar con 5 dados", "Terminar turno")
+      if (decision2 == 2) {
+        return(puntaje_acumulado)
+      }
     } else {
       suertudo <- FALSE
-      
-      cant_tiradas <- cant_tiradas + 1
     }
     
-    texto_lento("\nSacaste", calcular_puntaje_tirada(tirada), "puntos\n")
+    texto_lento("\nSacaste", puntaje_tirada, "puntos\n", pausa = 0.003)
     
     pausa(mensaje = NULL)
     limpiar_consola()

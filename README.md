@@ -27,7 +27,7 @@ División del trabajo por archivo:
 | Función | Responsable |
 |---|---|
 | `pantalla_inicio` | Nicolás Vazquez |
-| `mostrar_tabla` | Nicolás Vazquez |
+| `mostrar_puntaje` | Nicolás Vazquez |
 | `mostrar_turno` | Nicolás Vazquez |
 
 ### `jugar.R`
@@ -55,11 +55,13 @@ Rscript jugar.R
 ```
 ├── jugar.R        # Script principal (punto de entrada)
 ├── funciones.R    # Funciones del juego: calcular_puntaje_tirada, dados_sin_puntaje, ejecutar_turno
-├── interfaz.R     # Funciones de interfaz: pantalla_inicio, mostrar_tabla, mostrar_turno
+├── interfaz.R     # Funciones de interfaz: pantalla_inicio, mostrar_puntaje, mostrar_turno
 └── README.md
 ```
 
-> **Nota:** La idea de separar la interfaz en su propio archivo fue de Nico. Nos pareció buena para mantener el código ordenado: `funciones.R` se ocupa de la lógica del juego y `interfaz.R` de lo que se muestra en pantalla. `jugar.R` los carga a los dos con `source()`, así que no cambia nada desde afuera.
+## Decisiones de diseño
+
+- **Modularización:** Se decidió separar las funciones de interfaz en su propio script (`interfaz.R`) para mantener el código más ordenado y separar la lógica de presentación de la lógica principal del juego.
 
 ## Instalación del paquete `farkle`
 
