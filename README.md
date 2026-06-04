@@ -61,8 +61,7 @@ Rscript jugar.R
 
 ## Decisiones de diseño
 
-- **Modularización:** Separamos las funciones de interfaz en un script propio (`interfaz.R`) para mantener el código limpio y no mezclar la lógica del juego con la visual.
-- **Compatibilidad (ASCII estándar):** Utilizamos únicamente caracteres ASCII estándar para la interfaz. De esta manera evitamos problemas de compatibilidad y garantizamos que el juego se vea bien en cualquier terminal.
+- **Modularización:** Separamos el código en `interfaz.R` (para lo visual) y `funciones.R` (para la lógica) así el script principal (`jugar.R`) queda mucho más corto y ordenado.
 - **Estilo del título:** Diseñamos el título principal usando *ASCII art* para darle una mejor estética y lograr una presentación más atractiva al iniciar.
 
 ## Instalación del paquete `farkle`
