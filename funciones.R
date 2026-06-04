@@ -82,10 +82,14 @@ ejecutar_turno <- function(nombre, puntaje_total, puntaje_maximo) {
     mostrar_turno(cant_tiradas, puntaje_acumulado, dados)
     cat("\n")
     
-    decision <- leer_opciones("¿Tirar dados?", "Si", "No")
-    
-    if (decision == 2) {
-      return(puntaje_acumulado)
+    if (cant_tiradas > 0) {
+      decision <- leer_opciones("¿Tirar dados?", "Si", "No")
+      
+      if (decision == 2) {
+        return(puntaje_acumulado)
+      }
+    } else {
+      pausa("Primer lanzamiento del turno.")
     }
     
     tirada <- tirar_dados(dados)
